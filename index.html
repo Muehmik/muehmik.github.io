@@ -249,6 +249,142 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://heum.kim/2016/11/25/customize-your-hexo/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Muehmik">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatars/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The Life Of Muehmik">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="The Life Of Muehmik" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/25/customize-your-hexo/" itemprop="url">
+                  Customize your Hexo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-25T02:50:08+09:00">
+                2016-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="There-are-some-tips-for-customize-your-hexo"><a href="#There-are-some-tips-for-customize-your-hexo" class="headerlink" title="There are some tips for customize your hexo."></a>There are some tips for customize your hexo.</h1><h2 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h2><ul>
+<li><a href="#1">1. Add custom page</a></li>
+</ul>
+<hr>
+<p><h3 id="1">1. Add custom page</h3><br>Purpose: <code>xxx.github.io/CV/index.html</code></p>
+<ol>
+<li>在hexo/_config.yml中设置 <code>skip_render: CV/**</code></li>
+<li>在hexo/source目录下，新建<code>CV</code>目录，然后新建index.html文件。至此，可以访问<code>xxx.github.io/CV了</code>。</li>
+<li>为了链接到<code>CV</code>目录，需要在<code>主题目录（themes）</code>中设置如下，<ul>
+<li><code>themes/your-themes/_config.yml</code>中的<code>menu</code>和<code>menu-icons</code>添加相关内容，如<code>cv: /cv</code>。</li>
+<li>在当前使用的<code>languages</code>文件中的<code>menu</code>中添加<code>cv: CV</code>。</li>
+</ul>
+</li>
+<li>如果想添加多个自定义目录或文件(如，404.html，portfoli/index.html)的话，则需要把<code>skip_render</code>的值设置如下<code>[CV/**, 404.html, portfolio/index.html]</code></li>
+</ol>
+<hr>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/25/customize-your-hexo/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://heum.kim/2016/11/25/hello-world/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,13 +542,20 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
           
 
         </nav>
