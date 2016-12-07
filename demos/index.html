@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projects</title>
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -15,19 +14,66 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <style>
+        body {
+            background-color: #08c9c6;
+            font-family: 'Dosis', sans-serif;
+        }
+        
+        .content {
+            background-color: #ffffff;
+            margin-top: 50px;
+            border-radius: 10px;
+            color: #08c9c6;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 50px;
+        }   
+
+        a {
+            color: #08c9c6;
+        }
+        
+        a:hover,
+        a:focus {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Demo List</h1>
-        <ol>
-            <li><a href="front-end-projects/quote-machine/index.html" target="blank">Quote Machine</a></li>
-            <li><a href="front-end-projects/wikipedia-viewer/index.html" target="blank">Wikipedia Viewer</a></li>
-            <li><a href="front-end-projects/show-the-local-weather/index.html" target="blank">Show the Local Weather</a></li>
-            <li><a href="front-end-projects/use-the-twitchtv/index.html" target="blank">Use the Twitchtv</a></li>
-        </ol>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 content">
+                <h1 class="text-center">Demo List</h1>
+                <ol>
+                    <li>
+                        <a href="front-end-projects/quote-machine/index.html" target="blank">
+                            <h3>Quote Machine</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="front-end-projects/wikipedia-viewer/index.html" target="blank">
+                            <h3>Wikipedia Viewer</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="front-end-projects/show-the-local-weather/index.html" target="blank">
+                            <h3>Show the Local Weather</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="front-end-projects/use-the-twitchtv/index.html" target="blank">
+                            <h3>Use the Twitchtv</h3>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
     </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
