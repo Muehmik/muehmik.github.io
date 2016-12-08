@@ -259,12 +259,143 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://heum.kim/2016/12/07/Intermediate-Algorithm-Scripting/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Muehmik">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatars/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The Life Of Muehmik">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="The Life Of Muehmik" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/07/Intermediate-Algorithm-Scripting/" itemprop="url">
+                  Intermediate Algorithm Scripting(FreeCodeCamp)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-07T14:44:53+09:00">
+                2016-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/07/Intermediate-Algorithm-Scripting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/07/Intermediate-Algorithm-Scripting/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Intermediate-Algorithm"><a href="#Intermediate-Algorithm" class="headerlink" title="Intermediate Algorithm"></a>Intermediate Algorithm</h2><h3 id="1-Sum-All-Numbers-in-a-Range"><a href="#1-Sum-All-Numbers-in-a-Range" class="headerlink" title="1. Sum All Numbers in a Range"></a>1. Sum All Numbers in a Range</h3><blockquote>
+<p>We’ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.<br>The lowest number will not always come first.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumAll</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> sortedArr = <span class="built_in">Array</span>();</div><div class="line">    <span class="keyword">var</span> min = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,arr);</div><div class="line">    <span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);</div><div class="line">  </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = min; i &lt; max + <span class="number">1</span>; i++) &#123;</div><div class="line">        sortedArr.push(i);</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="keyword">var</span> result = sortedArr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> a + b;</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">sumAll([<span class="number">1</span>, <span class="number">4</span>]);</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/07/Intermediate-Algorithm-Scripting/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://heum.kim/2016/11/25/customize-your-hexo/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Muehmik">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatars/avatar.png">
+    <meta itemprop="image" content="/images/avatars/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -407,7 +538,7 @@
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Muehmik">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatars/avatar.png">
+    <meta itemprop="image" content="/images/avatars/avatar.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -558,7 +689,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatars/avatar.png"
+               src="/images/avatars/avatar.jpg"
                alt="Muehmik" />
           <p class="site-author-name" itemprop="name">Muehmik</p>
           <p class="site-description motion-element" itemprop="description">C'est la vie.</p>
@@ -566,7 +697,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -576,7 +707,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
