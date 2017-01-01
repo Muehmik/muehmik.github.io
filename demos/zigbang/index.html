@@ -1,0 +1,673 @@
+<!doctype html>
+<html amp lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Zigbang</title>
+    <link rel="canonical" href="http://example.ampproject.org/article-metadata.html" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "Open-source framework for publishing content",
+            "datePublished": "2015-10-07T12:02:41Z",
+            "image": [
+                "logo.jpg"
+            ]
+        }
+    </script>
+    
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+        
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+     <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <style amp-custom>
+        /**
+         * css reset
+         */
+        html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .x {
+            float: left;
+            line-height: inherit;
+        }
+        .y:after {
+            clear: both;
+            content: '';
+            display: table;
+        }
+        .z {
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .l {
+            margin: 0 auto;
+            width: 360px;
+        }
+        .r {
+            float: right;
+        }
+        .w {
+            min-height: 100%;
+            overflow-y: auto;
+        }
+        /********/
+        html {
+            height: 100%;
+        }
+        body {
+            font-family: "굴림", Gulim, Arial, sans-serif;
+/*            min-height: 100;*/
+/*            position: relative;*/
+        }
+        
+        .header {
+            background: #ffa409;
+            color: #ffffff;
+            height: 56px;
+            line-height: 56px;
+            padding: 0 110px 0 55px;
+/*
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -180px;
+*/
+        }
+        
+        .main {
+            z-index: 1;
+            width: 100%;
+            padding-bottom: 74px;
+        }
+        
+        .back,
+        .share,
+        .like {
+            width: 55px;
+        }
+        
+        .back {
+            background: url("./img/icon-back.png") 15px 18px no-repeat;
+            background-size: 22px auto;
+            margin-left: -55px;
+            text-align: center;
+            text-indent: -9999px;
+        }
+        
+        .header .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+        }
+        
+        .others {
+            margin-right: -110px;
+            text-align: center;
+            width: 110px;
+        }
+        
+        .share {
+            background: url("./img/icon-share.png") 15px 18px no-repeat;
+            background-size: auto 21px;
+            text-align: center;
+            text-indent: -9999px;
+            width: 55px;
+        }
+        
+        .like {
+            background: url("./img/icon-like.png") 15px 18px no-repeat;
+            background-size: 21px auto;
+            text-align: center;
+            text-indent: -9999px;
+            width: 55px;
+        }
+        
+        .trust-agency {
+            background: #0ec4bf;
+            color: #ffffff;
+            height: 45px;
+            line-height: 45px;
+            padding: 0 50px 0 100px;
+        }
+        
+        .trust {
+            background: url("./img/icon-trust.png") 10px 10px no-repeat;
+            background-size: 89px auto;
+            margin-left: -100px;
+            text-align: center;
+            text-indent: -9999px;
+            width: 100px;
+        }
+        
+        .trust-text {
+            width: 100%;
+        }
+        
+        .help {
+            background: url("./img/icon-help.png") 12px 12px no-repeat;
+            background-size: 20px auto;
+            margin-right: -50px;
+            text-align: center;
+            text-indent: -9999px;
+            width: 50px;
+        }
+        
+        .card {
+            background: #f6f6f6;
+            padding: 10px;
+/*            position: relative;*/
+        }
+        
+        .card-title {
+            line-height: 40px;
+            height: 40px;
+            font-size: 17px;
+            font-weight: bolder;
+            padding-left: 10px;
+            margin-top: -10px;
+        }
+        
+        .card .items {
+            border: 1px solid #e1e1e1;
+            padding-left: 10px;
+            padding-right: 10px;
+            position: relative;
+        }
+        
+        .card .items:before {
+            background: url("./img/icon-confirm.png") 0px 0px no-repeat;
+            background-size: 111px 61px;
+            content: '';
+            height: 61px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 111px;
+                
+        }
+        
+        .card .items .item {
+            height: 32px;
+            line-height: 32px;
+            font-size: 13px;
+            font-weight: bolder;
+            padding-left: 105px;
+        }
+        
+        .money {
+            color: #ff7800;
+            font-size: 17px;
+        }
+        
+        .i-name {
+            color: #6a6a6a;
+            margin-left: -105px;
+            width: 105px;
+            font-weight: bolder;
+        }
+        
+        .i-value {
+            color: #333333;
+            background: #fff;
+            width: 100%;
+            margin-left: 10px;
+            padding-left: 10px;
+            font-weight: bolder;
+        }
+        
+        .gray-line {
+            height: 1px;
+            background: #eee;
+            width: 100%;
+            overflow: hidden;
+            padding-left: 10px;
+        }
+        
+        sup { vertical-align: super; font-size: 0.6em; }
+        
+        .other-info {
+            border: 1px solid #e1e1e1;
+            padding: 10px;
+            background: #fff;
+            line-height: 25px;
+            font-size: 13px;
+            font-weight: bolder;
+        }
+        
+        .other-title {
+            line-height: 30px;
+            height: 30px;
+            font-size: 17px;
+            font-weight: bolder;
+            padding-left: 10px;
+            color: #616161;
+        }
+        
+        .building {
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            padding: 10px;
+            font-size: 13px;
+        }
+        
+        .building-img {
+            background: url("./img/building.png") no-repeat;
+            background-size: 120px auto;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .building-info {
+            padding-left: 15px;
+            font-weight: bolder;
+            font-size: 13px;
+            height: 120px;
+            line-height: 24px;
+        }
+        
+        .map-info {
+            border: 1px solid #e1e1e1;
+        }
+        
+        .detail-view {
+            background: #fff;
+            width: 50%;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            font-size: 17px;
+            border: 1px solid #e1e1e1;
+            font-weight: bolder;
+        }
+        
+        #map-view {
+            background: url("./img/map-view.png") 30px 10px no-repeat;
+            background-size: 18px auto;
+            background-color: #fff;
+        }
+        
+        #road-view {
+            background: url("./img/road-view.png") 20px 8px no-repeat;
+            background-size: 16px auto;
+            background-color: #fff;
+        }
+        
+        .agency {
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            padding: 10px;
+            font-size: 13px;
+        }
+        
+        .agency-img {
+            border: 1px solid #e1e1e1;
+            background: url("./img/agent.png") no-repeat;
+            background-size: 100px auto;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .agency-info {
+            padding-left: 10px;
+/*            font-weight: bolder;*/
+            font-size: 13px;
+            height: 100px;
+            line-height: 20px;
+        }
+        
+        .light-gray-line {
+            height: 1px;
+            background: #f0f0f0;
+            width: 100%;
+            overflow: hidden;
+            margin: 8px 0 8px 0px;
+        }
+        
+        .agency-office {
+            font-weight: bolder;
+        }
+        
+        .caution-msg {
+            margin-top: -10px;
+            background: url("./img/caution.png") no-repeat;
+            background-size: 340px auto;
+            width: 340px;
+            height: 65px;
+        }
+        
+        .footer {
+            background-color: #fff;
+            border-top: 1px solid #e1e1e1;
+            padding: 10px;
+            font-size: 13px;
+            
+            position: fixed;
+            z-index: 2;
+            bottom: 0;
+            left: 50%;
+            margin-left: -180px;
+            
+        }
+        
+        .call-info {
+            padding-left: 5px;
+            width: 50%;
+        }
+        
+        .phone-number {
+            color: #ff7800;
+        }
+        
+        .call-img {
+            background: url("./img/call.png") no-repeat;
+            background-size: 163px auto;
+            width: 163px;
+            height: 52px;;
+        }
+        
+        .squar-agency {
+            font-size: 11px;
+            font-weight: bolder;
+            color: #848484;
+            border: 1px solid #848484;
+            background-color: #eee;
+            padding: 3px 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header y l">
+        <div class="back x">Back</div>
+        <div class="title x"><strong>서울시 강남구 신사동</strong></div>
+        <div class="others x r">
+            <div class="share x">Share</div>
+            <div class="like x">Like</div>
+        </div>
+    </div>
+    
+    <div class="main">
+    <div class="y l">
+        <amp-carousel id="room-images" width="360" height="360" layout="responsive" type="slides" autoplay>
+            <a href="#">
+                <amp-image-lightbox id="lightbox1" layout="nodisplay"></amp-image-lightbox>
+                <amp-img on="tap:lightbox1"role="button" tabindex="0" src="./img/room/1.png" width="360" height="360" layout="responsive" alt="room1"></amp-img>
+            </a>
+            <a href="#">
+                <amp-image-lightbox id="lightbox2" layout="nodisplay"></amp-image-lightbox>
+                <amp-img on="tap:lightbox2"role="button" tabindex="1" src="./img/room/2.png" width="360" height="360" layout="responsive" alt="room2" ></amp-img>
+            </a>
+            <a href="#">
+                <amp-image-lightbox id="lightbox3" layout="nodisplay"></amp-image-lightbox>
+                <amp-img on="tap:lightbox3"role="button" tabindex="2" src="./img/room/3.png" width="360" height="360" layout="responsive" alt="room3" ></amp-img>
+            </a>
+            <a href="#">
+                <amp-image-lightbox id="lightbox4" layout="nodisplay"></amp-image-lightbox>
+                <amp-img on="tap:lightbox4"role="button" tabindex="3" src="./img/room/4.png" width="360" height="360" layout="responsive" alt="room3" ></amp-img>
+            </a>
+        </amp-carousel>
+    </div>
+    
+    <div class="trust-agency y l">
+        <div class="trust x">안심중게사</div>
+        <div class="trust-text x">가 등록한 방입니다.</div>
+        <div class="help x r">Help</div>
+    </div>
+    
+    <div class="card y l">
+        <div class="card-title">신사동 예쁜 쓰리룸</div>
+        <div class="items">
+            <div class="item y">
+                <div class="i-name x">보증금</div>
+                <div class="i-value x"><span class="money">1000</span> 만원</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">월세</div>
+                <div class="i-value x"><span class="money">100</span> 만원</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">등록번호</div>
+                <div class="i-value x">1234567</div>
+            </div>
+            <div class="gray-line y"></div>
+            <div class="item y">
+                <div class="i-name x">주소</div>
+                <div class="i-value x">서울시 강남구 신사동</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">인근전철역</div>
+                <div class="i-value x">신사역(3호선) 압구정역(7호선)</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">층/건물층수</div>
+                <div class="i-value x">3층/4층</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">크기</div>
+                <div class="i-value x">전용면적 60.10m<sup>2</sup>18.18P</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">구조</div>
+                <div class="i-value x">쓰리룸+</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">건물형태</div>
+                <div class="i-value x">다세대/다가구</div>
+            </div>
+            <div class="gray-line y"></div>
+            <div class="item y">
+                <div class="i-name x">옵션</div>
+                <div class="i-value x">옷장</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">관리비</div>
+                <div class="i-value x">없음</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">관리비 포함항목</div>
+                <div class="i-value x">수도</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">주차</div>
+                <div class="i-value x">불가능</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">엘레베이터</div>
+                <div class="i-value x">없음</div>
+            </div>
+            <div class="item y">
+                <div class="i-name x">입주가능일</div>
+                <div class="i-value x">4월21일 이후</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card y l">
+        <div class="other-title">상세설명</div>
+        <div class="other-info">
+            거실과 방이 크게 나온 신사동 3룸 입니다^^
+            남향집이고 해가 너무 잘들고 근청 건물들에 비해서 집이 깨
+            끗하고 뷰도좋은 편입니다.
+            가격은 집주인 분과 상의 후에 조정 가능합니다!!
+            깔끔하고 좋은 집 보러 연락주세요!
+        </div>
+    </div>
+    
+    <div class="card y l">
+        <div class="other-title">담당자 한마디</div>
+        <div class="other-info">
+            공휴일 및 주말에도 언제든지 상담 가능
+            차량픽업 서비스 가능
+            조건에 맞는 집 답사
+            상담부터 계약까지 고객 맟춤형 서비스
+        </div>
+    </div>
+    
+    <div class="card y l">
+        <div class="other-title">건물정보</div>
+        <div class="building y">
+            <div class="building-img x"></div>
+            <div class="building-info x">
+                <div class="name">고려 아카데미 텔</div>
+                <div class="addr">서울시 마포구 아현동 437-3</div>
+                <div class="gray-line"></div>
+                <div class="floor">17층</div>
+                <div class="rooms">675세대</div>
+                <div class="established">1987.11</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card y l">
+        <div class="other-title">위치정보</div>
+        <div class="map-info y">
+            <div id="map" style="width:100%;height:200px;"></div>
+        </div>
+        <div class="y">
+            <div id="map-view" class="detail-view x">지도보기</div>
+            <div id="road-view" class="detail-view x">로드뷰보기</div>
+        </div>
+    </div>
+    
+    <div class="card y l">
+        <div class="other-title">중개사정보</div>
+        <div class="agency y">
+            <div class="agency-img x"></div>
+            <div class="agency-info x">
+                <div><strong>대표공인중개사 (이갑영)</strong></div>
+                <div>okok@naver.com</div>
+                <div>010-1234-4567</div>
+            </div>
+            <div class="light-gray-line x"></div>   
+            <div class="agency-office x">중개사무소 정보</div>
+            <div class="light-gray-line x"></div>
+            <div class="x">
+                <ul style="padding-left: 15px;">
+                    <li>서울시 마포구, 테리 부동산(김테리)</li>
+                    <li>대표번호: 1588-1688</li>
+                </ul> 
+            </div>
+        </div>
+    </div>
+    
+    <div class="card y l">
+        <div class="caution-msg">
+        </div>
+    </div>
+    </div>
+    <div class="footer y l">
+        <div class="call-info x">
+            <div class="l">우정공인중개사(김성훈)</div>
+            <div class="l"><strong>중개보조원(한유진팀장)</strong></div>
+            <div class="phone-number l"><strong>010-5228-7825</strong> <span class="squar-agency">중개</span></div>
+        </div>
+        <div class="call-img r">
+            <a href="tel:010-5228-7825"></a>
+        </div>
+    </div>
+    
+    
+    
+    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=10d4d6e3a2ff96e4d37280010c89e42b&libraries=services"></script>
+    <script>
+        var mapContainer = document.getElementById('map'),
+            mapOption = {
+                center: new daum.maps.LatLng(33.450701, 126.570667), 
+                level: 4 
+            };
+        var map = new daum.maps.Map(mapContainer, mapOption);
+        var geocoder = new daum.maps.services.Geocoder();
+
+        geocoder.addr2coord('서울시 마포구 아현동 437-3', function (status, result) {
+
+            if (status === daum.maps.services.Status.OK) {
+                var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+                var circle = new daum.maps.Circle({
+                    center: new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng),
+                    radius: 50,
+                    strokeWeight: 5,
+                    strokeColor: '#fc7009',
+                    strokeOpacity: 0,
+//                    strokeStyle: 'none',
+                    fillColor: '#fc7009',
+                    fillOpacity: 0.5  
+                });
+                circle.setMap(map); 
+                map.setCenter(coords);
+            }
+        });
+    </script>
+</body>
+
+</html>
